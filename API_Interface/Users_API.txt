@@ -1,0 +1,76 @@
+Users -
+First name
+Last name
+DOB
+Email/ Username
+Mobile No.
+Password
+User Id
+Creation Date
+Is Verified
+
+API: Save User
+curl --location 'http://libmngment/api/users' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "firstName": "firstName",
+    "lastName": "lastName",
+    "dob": "26-08-1993",
+    "email": "xyz@gmail.com",
+    "mobileNumber": "911234567895",
+    "password": "1234"
+}'
+
+Response:
+1. User created
+2. Failed to create User
+3. Invalid Request
+4. Invalid email
+5. Invalid Mobile Number
+6. Internal Server ERROR
+
+API: Login
+curl --location 'http://libmngment/api/login' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "email": "xyz@gmail.com",
+    "password": "1234"
+}'
+
+Response:
+1. Invalid Request
+2. Invalid Auth
+3. Internal Server ERROR
+4. Valid User
+
+
+API: Update password
+curl --location --request PUT 'http://libmngment/api/users?email=xyz%40gmail.com' \
+--header 'Content-Type: application/json' \
+--data '{
+    "password": "1234",
+"mobileNumber": ""
+}'
+Response:
+1. User updated
+2. Failed to update User
+3. Invalid Request
+4. Invalid email or not found
+5. Invalid Mobile Number
+6. Internal Server ERROR
+
+
+API: deleteUser
+curl --location --request DELETE 'http://libmngment/api/users?email=xyz%40gmail.com' \
+
+Response:
+1. User Not found
+2. Internal Server ERROR
+3. DELETED
+
+
+curl --location 'http://libmngment/api/verifyUserEmail?email=xyz%40gmail.com&emailStatus=verfied' \
+
+Response:
+1. success / failed
+2. Email Not found
