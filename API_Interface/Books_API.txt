@@ -1,0 +1,30 @@
+Books:
+Get the list of books and search the book-
+curl --location 'http://libmngment/api/books?limit=10&startPoint=1'
+
+Save Get request-
+curl --location 'http://libmngment/api/books' \
+--header 'Content-Type: application/json' \
+--data '{
+    "bookName":"C#",
+    "authorName":"XYZ",
+    "publication":"Xyz",
+    "publicationYear":"XyZ",
+    "edition":"xyz",
+    "bookQntity":"10",
+     "entryDate":"10-oct-2023",
+     "bookPrice":"250"
+}'
+
+Put request-
+curl --location --request PUT 'http://libmngment/api/books?bookName=c' \
+--header 'Content-Type: application/json' \
+--data '{
+    "publicationYear":"XyZ",
+    "edition":"xyz",
+    "bookQntity":"10",
+    "bookPrice":"250"
+}'
+
+Delete request-
+curl --location --request DELETE 'http://libmngment/api/books?bookName=c#&bookId=102'
