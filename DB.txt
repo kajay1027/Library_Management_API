@@ -1,0 +1,47 @@
+DB:
+CREATE TABLE `lib_mgmnt_system`.`books` (
+  `book_id` INT NOT NULL AUTO_INCREMENT,
+  `book_name` VARCHAR(100) NOT NULL,
+  `book_author` VARCHAR(45) NOT NULL,
+  `publication` VARCHAR(45) NOT NULL,
+  `bublication_year` INT NOT NULL,
+  `book_edition` VARCHAR(45) NOT NULL,
+  `quantity` INT NOT NULL,
+  `entry_date` DATE NULL,
+  `book_price` INT NULL DEFAULT 0,
+  PRIMARY KEY (`book_id`),
+  UNIQUE INDEX `book_name_UNIQUE` (`book_name` ASC) INVISIBLE);
+
+
+ALTER TABLE `lib_mgmnt_system`.`books`
+CHANGE COLUMN `entry_date` `creation_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ;
+
+
+INSERT INTO `lib_mgmnt_system`.`books`
+(`book_name`,`book_author`,`publication`,`bublication_year`,`book_edition`,`quantity`,`book_price`)
+VALUES("c#","c#","c# publ",2013,"FirstEdition","10",250);
+
+CREATE TABLE `lib_mgmnt_system`.`users` (
+  `user_id` INT NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  `dob` DATE NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `mobile` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  `creation_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `is_verified` INT NULL DEFAULT 0,
+  PRIMARY KEY (`user_id`),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE);
+
+
+INSERT INTO `lib_mgmnt_system`.`users`
+(
+`first_name`,
+`last_name`,
+`dob`,
+`email`,
+`mobile`,
+`password`)
+VALUES
+("Ravi","More",10/10/1990,"ravi@gmail.com","919561120895","123");
